@@ -4,6 +4,17 @@
 
    配置开发环境运行的环境，比如IP 地址，port 端口号等
 
+   “script"{
+       "dev":"webpack-dev-server --config webpack.config.js"
+       // 启动使用webpack-dev-server
+   }
+
+   现在webpack 版本为5，因此dev-server 可能出现以下问题
+
+   ![avatar](../assets/webpack-dev-server.jpg)
+
+   版本对应不上
+
 2. 安装webpack -dev-server 
 
         npm install webpack-dev-server -D
@@ -40,6 +51,31 @@
 > 配置参数说明
 
 + publicPath : 和 output 中一样
+
++ host:  主机
+
++ port : 端口号  默认端口号为8080
+
++ hot: true //  是否开启热更新，需要搭配HotReplacementPlugin 插件
+
+        plugins:[
+            new webpack.HotReplacementPlugin()
+        ]
+
++ hotOnly: true: 页面不熟悉，比如修改样式
+
++ proxy: 代理，ajax 跨域
+
+        proxy: {
+           "/api": "http://localhost:3000"
+        }
+
+        proxy: {
+            "/api": {
+                target: "http://localhost:3000",
+                pathRewrite: {"^/api" : ""}
+            }
+        }
 
 4. webpack-dev-server 和 webpack build 生成的最大区别就是 webpack-dev-server 只是将打包结果放到内存中，并不生成实际文件。 每次接收到请求将内存中打包结果返回给浏览器。
 

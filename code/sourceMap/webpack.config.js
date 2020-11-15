@@ -19,5 +19,6 @@ module.exports = {
     devServer:{
         port:9000
     },
-    devtool:'source-map'
+    // devtool:'source-map' // 生成单独的map 文件到dist 目录中
+    devtool:'cheap-module-eval-source-map'
 }
