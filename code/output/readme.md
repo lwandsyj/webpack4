@@ -58,3 +58,35 @@
    生成的文件如下图:
 
    ![avatar](../../assets/publicPath1.jpg)
+
+5. 为异步加载js 设置名称，webpack 默认为 [id].js
+
+        output:{
+            filename:"main.js",
+            path:rootDir('./dist'),
+            chunkFilename:"[id].[chunkhash].js"
+        },
+
+6. mode: development 和 production 
+
+> development 
+
+        module.exports ={
+            entry:"./src/index.js",
+            output:{
+                filename:"main.js",
+                path:path.join(__dirname,'./dist')
+            },
+            mode:"development" // “production”
+        }
+
+   ![avatar](../../assets/development.jpg)
+
+> mode 为production , 如果不设置mode ,默认为production 
+
+
+   ![avatar](../../assets/production.jpg)
+   
+
+
+   

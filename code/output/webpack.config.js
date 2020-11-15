@@ -13,7 +13,6 @@ module.exports = {
         path:rootDir('./dist'),
         chunkFilename:"[id].[chunkhash].js"
     },
-    mode:"development",
     plugins:[
         new HtmlWebpackPlugin()
     ]
